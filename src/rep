@@ -1,0 +1,84 @@
+   <PlansContainer>
+                        <h2>Smart Dentario</h2>
+                        <PlansCardContainer>
+                            <header >
+                                <h3>ESCOLHER PLANO</h3>
+                                <p>Escolha o seu plano e forma de pagamento ou use a versão trial para testar o nosso sistema!</p>
+                            </header>
+                            <ListOfPlansContainer>
+                                <AccordionContainer type="multiple">
+                                    <AccordionContet value="item-1">
+                                        <AcordionCardHeader>
+                                            <div>
+                                                <Checkbox labelText='Básico' />
+                                            </div>
+                                            <AccordionTrigger>
+                                                <CaretDown size={20} />
+                                            </AccordionTrigger>
+                                        </AcordionCardHeader>
+                                        <AccordionBody>
+                                            <ul>
+                                                <li>Até 50 planejamentos por Mês</li>
+                                                <li>Tempo de resposta de até 2 dias</li>
+                                                <li>Contato direto com a equipe</li>
+                                            </ul>
+                                            <div>
+                                                <label>Preço: </label>
+                                                <p>R$ 50,00</p>
+                                            </div>
+
+                                        </AccordionBody>
+                                    </AccordionContet>
+
+                                    <AccordionContet value="item-2">
+                                        <AcordionCardHeader>
+                                            <div>
+                                                <Checkbox labelText='Premium' />
+                                            </div>
+                                            <AccordionTrigger>
+                                                <CaretDown size={20} />
+                                            </AccordionTrigger>
+                                        </AcordionCardHeader>
+                                        <AccordionBody>
+                                            <ul>
+                                                <li>Até 50 planejamentos por Mês</li>
+                                                <li>Tempo de resposta de até 2 dias</li>
+                                                <li>Contato direto com a equipe</li>
+                                            </ul>
+                                            <div>
+                                                <label>Preço: </label>
+                                                <p>R$ 50,00</p>
+                                            </div>
+
+                                        </AccordionBody>
+                                    </AccordionContet>
+
+                                    <AccordionContet value="item-3">
+                                        <AcordionCardHeader>
+                                            <div>
+                                                <Checkbox labelText='Free Trial'/>
+                                            </div>
+                                            <AccordionTrigger>
+                                                <CaretDown size={20} />
+                                            </AccordionTrigger>
+                                        </AcordionCardHeader>
+                                        <AccordionBody>
+                                            <ul>
+                                                <li>Até 50 planejamentos por Mês</li>
+                                                <li>Tempo de resposta de até 2 dias</li>
+                                                <li>Contato direto com a equipe</li>
+                                            </ul>
+                                            <div>
+                                                <label>Preço: </label>
+                                                <p>R$ 50,00</p>
+                                            </div>
+
+                                        </AccordionBody>
+                                    </AccordionContet>
+
+                                </AccordionContainer>
+                                <button type="submit">Relizar Pagamento<ArrowRight size={24} color='#fff' weight="bold" /></button>
+                            </ListOfPlansContainer>
+                        </PlansCardContainer>
+
+                    </PlansContainer>
