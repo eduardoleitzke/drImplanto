@@ -83,7 +83,7 @@ export const GalleryCaseContent = styled.div`
             font-size: 1rem;
             cursor: pointer;
             margin-bottom:1.5rem ;
-
+            width: 30%;
             
             &:hover{
                     box-shadow: 10px 10px 15px ${props => props.theme['gray-600']};

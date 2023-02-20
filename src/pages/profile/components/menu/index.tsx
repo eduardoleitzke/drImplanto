@@ -13,7 +13,10 @@ export function Menu(){
     const cookie = new Cookies()
     function logout(){
         cookie.remove('authorization_token')
-        navigate('/login')
+        setTimeout(() => {
+            navigate('/login')
+        }, 1000);
+        
     }
     return (
        <MenuContainer>
@@ -23,7 +26,7 @@ export function Menu(){
                 <li><a href="/profile/meus-planejamentos"><img src={iconMyPlannings}/></a></li>
                 <li><a href="/profile/novo-planejamento"><img src={iconNewPlanning}/></a></li>
                 <li><a href=""><img src={iconContact}/></a></li>
-                <li><a href=""><img src={iconGallery}/></a></li>
+                <li><a href="/profile/galeria"><img src={iconGallery}/></a></li>
                 <li><a href=""><img src={iconGear}/></a></li>
             </ul>
             <LoggoutButton onClick={logout}>

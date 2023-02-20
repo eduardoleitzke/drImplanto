@@ -11,4 +11,5 @@ export interface IPlanningRepository {
     create(data: IPlanning): Promise<void>;
     listPlannigs(id: string): Promise<IPlanning[]>;
     findById(id: string): Promise<IPlanning>;
+    listAllPlannings(): Promise<IPlanning[]>;
 }
