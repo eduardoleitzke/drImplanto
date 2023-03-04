@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { TabList, TabPanel } from 'react-tabs';
 export const GalleryCasesContainer = styled.div`
     width: 100%;
     height: 100vh;
@@ -59,6 +59,7 @@ export const GalleryCaseContent = styled.div`
                 color: ${props => props.theme["gray-400"]};
             }
         }
+        
 
         textarea{
             width: 75%;
@@ -181,9 +182,10 @@ export const MyPlanningsCard = styled.div`
             font-weight: 400;
             
             tr{
-                width: 100;
+                width: 100%;
                 position: relative;
-                td{                
+                td{    
+                    max-width: 15rem;
                      padding-top: 1.5rem;
                      svg{
                         position: absolute;
@@ -195,3 +197,32 @@ export const MyPlanningsCard = styled.div`
         }
     }
 ` 
+
+
+export const TabListContent = styled(TabList)`
+    width: 80%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: ${props=>props.theme["gray-600"]};
+    font-weight: bold;
+    li{
+        cursor: pointer;
+    }
+
+    .react-tabs__tab--selected{
+        color: ${props=>props.theme["blue-400"]};
+        text-decoration: underline;
+    }
+`
+
+export const TabPanelContet = styled(TabPanel)`
+    /* background-color: red;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between; */
+`

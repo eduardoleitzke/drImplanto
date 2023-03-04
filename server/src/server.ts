@@ -1,11 +1,12 @@
 import "reflect-metadata";
-import "express-async-errors";
+import "dotenv/config";
 import "./database/index";
 import "./shared/container";
 
 import cors from "cors";
 import express, { NextFunction, Request, Response, urlencoded } from "express";
 
+import "express-async-errors";
 import { router } from "./routes";
 import { AppError } from "./shared/errors/AppError";
 

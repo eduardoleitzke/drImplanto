@@ -11,7 +11,7 @@ export const MyPlanningsContainer = styled.div`
 `
 
 export const MyPlanningsContent = styled.div`
-    padding: 7.75rem 2rem 7.75rem 4rem;
+    padding: 0rem 0rem 7.75rem 0rem;
     display: flex;
     width: 100%;
     flex-wrap: wrap;

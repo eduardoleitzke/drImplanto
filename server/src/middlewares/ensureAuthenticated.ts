@@ -22,7 +22,6 @@ export async function EnsureAuthenticated(
     }
 
     const [, token] = authHeader.split(" ");
-    console.log(token);
     try {
         const sub = verify(token, auth.secret) as IPayload;
         const userRepository = new UserRepository();

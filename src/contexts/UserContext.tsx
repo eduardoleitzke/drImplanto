@@ -9,22 +9,27 @@ interface IUserContextProviderProps{
 
 interface verifyTokenContextType{
     validToken: boolean
-    loggedUser: loggedUserType
+    loggedUser: ILoggedUserType
     changeAttrLoggedUser: (data:string)=> void
 }
 
-interface loggedUserType{
+interface ILoggedUserType{
     email: string,
     plan: string,
     id: string
 }
 
+interface ISubscriptionType{
+    reason: string
+    status: string
+}
 export const UserContext = createContext({} as verifyTokenContextType)
 
 
 export function UserContextProvider({children}:IUserContextProviderProps){
     const [validToken, setValidToken] = useState(false)
-    const [loggedUser, setLoggedUser] = useState({} as loggedUserType)
+    const [loggedUser, setLoggedUser] = useState({} as ILoggedUserType)
+    const [subscriptionData, setSubscriptionData] = useState({} as ISubscriptionType)
     const navigate = useNavigate()
     const cookies = new Cookies()
     useEffect(() => {
@@ -50,20 +55,25 @@ export function UserContextProvider({children}:IUserContextProviderProps){
     
     useEffect(()=>{
         if(loggedUser.id){
-            console.log(loggedUser)
-            async function fetchVerifyAssignment(){
+            async function fetchVerifySubscription(){
                 const userId = loggedUser.id
-                const resolve = await api.post('/search_payment',{userId})
+                console.log(userId)
+                await api.post('/search_payment',{userId})
                 .then(response=>{
                     return response
                 })
                 .then((resolve)=>{
+                    const {data:{reason, status}} = resolve
+                    if(!subscriptionData){
+                        setSubscriptionData(resolve.data)
+                    }
+                   
                     console.log(resolve.data)
                     })
                 .catch((error)=>{console.log(error)
                 navigate('/planos')})
             }
-            fetchVerifyAssignment()
+            fetchVerifySubscription()
         }
     }, [loggedUser])
 

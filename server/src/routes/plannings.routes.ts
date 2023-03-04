@@ -6,7 +6,7 @@ import { CreatePlanningController } from "../modules/plannings/useCase/createPla
 import { ListAllPlanningController } from "../modules/plannings/useCase/listAllPlannings/ListAllPlanningsController";
 import { ListPlanningController } from "../modules/plannings/useCase/listPlannings/ListPlanningsController";
 
-const uploadImages = multer(uploadConfig.upload("./tmp/images"));
+const uploadImages = multer(uploadConfig);
 
 export const planningsRoutes = Router();
 const createPlanningController = new CreatePlanningController();

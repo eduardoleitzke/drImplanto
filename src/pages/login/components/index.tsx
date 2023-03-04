@@ -34,8 +34,7 @@ export function LoginCard() {
         try {
             const resolve = await api.post('/session', data)
             cookies.set('authorization_token', resolve.data.token)
-            if(!resolve.data.sub.haveAssignement) navigate('/planos')
-            else navigate('/profile')
+            navigate('/profile')
         } catch (error:any) {
             setErrorMessage(errorMessageTypes(error.response.data.type))
         }
@@ -80,7 +79,7 @@ export function LoginCard() {
             </form>
             <nav>
                 <span>Não tem conta ainda?<a href="/registrar"> Crie aqui</a></span>
-                <a href="">Esqueci minha senha</a>
+                <a href="/recuperar-senha">Esqueci minha senha</a>
             </nav>
         </LoginCardContainer>
     )

@@ -14,8 +14,8 @@ export function Menu(){
     function logout(){
         cookie.remove('authorization_token')
         setTimeout(() => {
-            navigate('/login')
-        }, 1000);
+            navigate('/')
+        }, 500);
         
     }
     return (
@@ -25,7 +25,7 @@ export function Menu(){
                 <li><a href="/profile"><img src={iconHome}/></a></li>
                 <li><a href="/profile/meus-planejamentos"><img src={iconMyPlannings}/></a></li>
                 <li><a href="/profile/novo-planejamento"><img src={iconNewPlanning}/></a></li>
-                <li><a href=""><img src={iconContact}/></a></li>
+                <li><a href="/profile/contato"><img src={iconContact}/></a></li>
                 <li><a href="/profile/galeria"><img src={iconGallery}/></a></li>
                 <li><a href=""><img src={iconGear}/></a></li>
             </ul>

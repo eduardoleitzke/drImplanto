@@ -5,9 +5,8 @@ import { AboutUs } from "./components/aboutUs"
 import { PlanningIntro } from "./components/planningsIntro"
 import { PlansCards } from "./components/plansCards"
 import { HomeFooter } from "./components/footer"
-
 export function Home(){
-    
+
     return (
         <HomeContainer>
             <HomeHeader/>

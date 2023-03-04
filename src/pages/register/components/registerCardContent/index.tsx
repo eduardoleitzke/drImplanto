@@ -8,9 +8,6 @@ import { StepOne } from "./components/stepOne";
 import { StepTwo } from './components/stepTwo';
 import { api } from '../../../../lib/axios';
 import { ErrorMessageContainer } from './styles';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import React from 'react';
 
 const registerSchema = z.object({
   email: z.string().email(),

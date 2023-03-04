@@ -2,7 +2,7 @@ export interface IPlanning {
     patientName: string;
     procedureType: string;
     procedureDetails: string;
-    procedureImage?: string | string[];
+    procedureImage?: string[];
     createdAt?: Date;
     user: unknown;
 }

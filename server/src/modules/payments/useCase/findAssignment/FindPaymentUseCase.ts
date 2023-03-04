@@ -18,7 +18,7 @@ export class FindPaymentUseCase {
             user
         );
         if (!userAlreadyHaveAPlan) {
-            throw new AppError("Dont have Assignment", "paymentError", 400);
+            throw new AppError("Dont have subscription", "paymentError", 400);
         }
         return userAlreadyHaveAPlan;
     }

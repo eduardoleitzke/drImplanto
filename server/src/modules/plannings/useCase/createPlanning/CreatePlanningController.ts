@@ -6,7 +6,6 @@ import { CreatePlanningUseCase } from "./CreatePlanningUseCase";
 export class CreatePlanningController {
     async handle(req: Request, res: Response): Promise<Response> {
         const { name, details, type, userId } = req.body;
-        console.log(req.body);
         const createPlanningUseCase = container.resolve(CreatePlanningUseCase);
         const { files } = req;
         const filesName = [];
@@ -14,7 +13,6 @@ export class CreatePlanningController {
         for (let i = 0; i < files.length; i++) {
             filesName.push(files[i].filename);
         }
-        console.log(filesName);
         await createPlanningUseCase.execute({
             patientName: name,
             procedureDetails: details,

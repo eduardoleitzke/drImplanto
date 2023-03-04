@@ -8,6 +8,7 @@ import { api } from "../../../../../lib/axios"
 import { AccordionContainer, AccordionBody, AccordionContet, AccordionTrigger, AcordionCardHeader, PlanningState, PlanningDetails, OpenPlannings, FinishedPlannings, BackGroundImage, InfoTextTittle, PlanningStateContent } from "./styles"
 import { NonePlanning } from "../nonePlanning"
 import { IPlanning } from "../../../../../types/IPlannings"
+import { PlanningContent } from "../specificPlanning/styles"
 interface IAllPlanningsProps {
     showAll: boolean
     setShowAll: React.Dispatch<React.SetStateAction<boolean>>

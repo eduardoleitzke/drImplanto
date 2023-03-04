@@ -37,6 +37,7 @@ export class CreateUserUseCase {
             lastName,
             password: passwordHash,
             phone,
+            haveAssignement: false,
         });
     }
 }

@@ -5,5 +5,5 @@ export interface IPlanning {
     procedureDetails: string,
     state: string
     createdAt: Date
-    procedureImage: string | string []
+    procedureImage: string []
 }

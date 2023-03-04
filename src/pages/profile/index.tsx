@@ -10,7 +10,7 @@ export function Profile() {
         if(validToken){
             const userId = loggedUser.id
             async function fetchToApi(){
-                const resolve = await api.post('/verify_assignment', {id:userId})
+                const resolve = await api.post('/verify_subscription', {id:userId})
                 try {
                     console.log(resolve.data)
                 } catch (error) {
@@ -22,14 +22,11 @@ export function Profile() {
     },[validToken])
     return (
         <>
-        {validToken? (
+        {validToken && (
                 <ProfileContainer>
                     <Menu />
                     <ProfileHome />
                 </ProfileContainer>
-            )
-           :(
-                <></>
             )
     }
         </>

@@ -14,7 +14,7 @@ export const BackGroundImage = styled.img`
 
 
 export const OpenPlannings = styled.div`
-
+    padding: 7.75rem 0  0 4rem;
     flex-basis: 0;
     flex-grow: 1;
     position: relative;
@@ -48,7 +48,7 @@ export const InfoTextTittle = styled.p`
 
 
 export const FinishedPlannings = styled.div`
-
+    padding: 7.75rem 2rem 0 0;
    flex-basis: 0;
    flex-grow: 1;
    margin-right: 5rem;
@@ -160,6 +160,7 @@ export const AccordionBody = styled(Accordion.Content)`
 
     img{
         max-height: 10rem;
+        background-color: transparent;
     }
 
     button{

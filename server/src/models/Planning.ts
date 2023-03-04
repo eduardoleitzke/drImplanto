@@ -5,6 +5,7 @@ const planningSchema = new Schema({
     procedureType: { type: String, required: true },
     procedureDetails: { type: String, required: true },
     procedureImage: { type: [String] },
+    feebackRemains: { type: Number, default: 2 },
     state: {
         type: String,
         enum: ["open", "answered", "finished"],

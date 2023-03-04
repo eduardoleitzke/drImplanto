@@ -1,6 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { Payment } from "../../../../models/Payment";
+import { IStorageProvider } from "../../../../shared/container/providers/StorageProvider/IStorageProvider";
 import { AppError } from "../../../../shared/errors/AppError";
 import {
     IPlanningRepository,
@@ -11,7 +12,9 @@ import {
 export class CreatePlanningUseCase {
     constructor(
         @inject("PlanningRepository")
-        private planningRepository: IPlanningRepository
+        private planningRepository: IPlanningRepository,
+        @inject("LocalStorageProvider")
+        private localStorageProvider: IStorageProvider
     ) {}
     async execute({
         patientName,
@@ -20,7 +23,7 @@ export class CreatePlanningUseCase {
         user,
         procedureImage,
     }: IPlanning): Promise<void> {
-        const userHavePlanningsRemain = await Payment.findOne();
+        const userHavePlanningsRemain = await Payment.findOne({ user });
         if (userHavePlanningsRemain.currentPlanningsRemain <= 0) {
             throw new AppError(
                 "No have more plannings request!",
@@ -28,11 +31,15 @@ export class CreatePlanningUseCase {
                 401
             );
         }
-        console.log(user);
-        const teste = await Payment.findOneAndUpdate(user, {
-            $inc: { currentPlanningsRemain: -1 },
-        });
-        console.log(teste);
+        await Payment.findOneAndUpdate(
+            { user },
+            {
+                $inc: { currentPlanningsRemain: -1 },
+            }
+        );
+        if (procedureImage.length > 0) {
+            await this.localStorageProvider.save(procedureImage, "images");
+        }
         await this.planningRepository.create({
             patientName,
             procedureDetails,

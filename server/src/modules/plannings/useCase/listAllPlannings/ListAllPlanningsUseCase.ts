@@ -1,6 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../shared/errors/AppError";
+import { IPaymentRepository } from "../../../payments/repositories/IPaymentRepository";
 import {
     IPlanningRepository,
     IPlanning,
@@ -15,7 +16,6 @@ export class ListAllPlanningUseCase {
     async execute(): Promise<IPlanning[]> {
         const havePlanningCreatedForThisUser =
             await this.planningRepository.listAllPlannings();
-        console.log(havePlanningCreatedForThisUser);
         if (!havePlanningCreatedForThisUser)
             throw new AppError(
                 "Something doe's wrong!",

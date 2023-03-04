@@ -1,4 +1,6 @@
 export default {
+    recoveryPasswordSecret:
+        "$2y$10$cCvU7J6J/uUmmbJZiFkV4.AAlEEWNpshcJo6Bi57e1KPm77q4kFE6",
     secret: "912a65829d987096a845a73b8c6a8011c052ea68",
     expiresIn: "8h",
     payment_token:

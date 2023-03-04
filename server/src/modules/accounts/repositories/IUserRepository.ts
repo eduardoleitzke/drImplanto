@@ -18,4 +18,6 @@ export interface IUserRepository {
     findByCpf(cpf: string): Promise<IUser | null>;
     findById(id: string): Promise<IUser | null>;
     updatePlan(id: Types.ObjectId): Promise<IUser | null>;
+    sendRecoveryPassword(email: string): Promise<IUser | null>;
+    changePassword(password: string, email: string): Promise<IUser | null>;
 }

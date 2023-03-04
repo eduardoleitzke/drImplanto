@@ -17,6 +17,7 @@ export class CreateUserController {
             cpf,
             lastName,
             phone,
+            haveAssignement: false,
         });
         return res.status(201).send();
     }

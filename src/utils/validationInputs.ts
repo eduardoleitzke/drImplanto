@@ -1,6 +1,5 @@
 export function ValidationPassword(password: string, confirmPassword:string){
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-
     if(password.length < 6 || 
        password !== confirmPassword ||
        !/[A-Z]/.test(password) ||
