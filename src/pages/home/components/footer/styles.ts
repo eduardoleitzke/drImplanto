@@ -17,6 +17,7 @@ export const HomeFooterContainer = styled.footer`
 
     @media (max-width: 1400px) {
         height: auto;
+        padding:  4.31rem 5rem 0 5rem ;;
     }
     span{
         font-size: 1.5rem;

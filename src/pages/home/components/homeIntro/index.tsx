@@ -1,4 +1,4 @@
-import { HomeIntroContainer, HomeIntroContent, HomeIntroContentWriting,HomeIntroContentButtons, RegisterButton, PlansButton } from "./style"
+import { HomeIntroContainer, HomeIntroContent, HomeIntroContentWriting,HomeIntroContentButtons, RegisterButton, PlansButton, HashLinkButton } from "./style"
 import IntroImage from '../../../../assets/home/homeIntro/HomeIntroImage.png'
 import { HashLink } from 'react-router-hash-link'
 import { ArrowRight } from "phosphor-react"
@@ -17,7 +17,7 @@ export function HomeIntro(){
                 </HomeIntroContentWriting>
                 <HomeIntroContentButtons>
                     <RegisterButton href="/registrar">Criar Conta <ArrowRight color="#fff" size={28} weight='bold' /></RegisterButton>
-                    <HashLink to="#toPlans">Ver Planos</HashLink>
+                    <HashLinkButton to="#toPlans">Ver Planos</HashLinkButton>
                 </HomeIntroContentButtons>
             </HomeIntroContent>
             <img src={IntroImage} alt="" />

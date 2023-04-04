@@ -14,10 +14,6 @@ export const PlanningContainer = styled.section`
     width: 100%;
     position: relative;
     gap: 2rem;
-    overflow: scroll;
-    ::-webkit-scrollbar{
-        display: none;
-    }
 `
 
 
@@ -31,12 +27,8 @@ export const BorderTop = styled.div`
 export const PlanningContent = styled.div`
     width: 100%;
     height: 100%;
-    padding: 7.75rem 2rem 0 4rem;
+    /* padding: 7.75rem 2rem 0 4rem; */
     display: flex;
-    overflow: scroll;
-    ::-webkit-scrollbar{
-        display: none;
-    }
 `
 
 export const FeedbackDescriptionContainer = styled.div`

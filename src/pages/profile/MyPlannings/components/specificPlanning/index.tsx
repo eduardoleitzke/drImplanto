@@ -1,4 +1,4 @@
-import { BorderTop, DescriptionContainer, FeedbackDescriptionContainer, PlanningContainer, PlanningContent } from './styles'
+import { BorderTop, DescriptionContainer, FeedbackDescriptionContainer, PlanningContainer, PlanningContent, SpecificPlanningContainer } from './styles'
 import { IPlanning } from '../../../../../types/IPlannings'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
@@ -65,7 +65,7 @@ export function SpecificPlanning({ specificPlanning }: ISpecificPlanningProps) {
     },[])
     console.log(feedbacksList)
     return (
-        <>
+        <SpecificPlanningContainer>
         <PlanningContainer>
             <Planning specificPlanning={specificPlanning}></Planning>
         </PlanningContainer>
@@ -111,7 +111,7 @@ export function SpecificPlanning({ specificPlanning }: ISpecificPlanningProps) {
         )
         }
         
-        </>
+        </SpecificPlanningContainer>
 
     )
 }

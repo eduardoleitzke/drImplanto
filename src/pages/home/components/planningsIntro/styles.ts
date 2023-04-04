@@ -9,7 +9,7 @@ export const PlanningIntroContainer= styled.section`
 
     @media (max-width: 1400px) {
         margin: 5rem 0rem;
-
+        padding: 5rem 5rem;
         img{
             width: 48%;
             height: 60%;

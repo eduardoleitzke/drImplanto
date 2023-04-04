@@ -7,6 +7,10 @@ export const PlanningContent = styled.div`
     display: flex;
 `
 export const DetailsAndImagesContainer = styled.div`
+overflow: scroll;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 width: 50%;
    h3{
     font-size: 2rem;
@@ -68,8 +72,8 @@ export const DescriptionContainer = styled.div`
         font-weight: 900;
         color: ${props=>props.theme["gray-800"]};   
     }
-    span{
-            font-size: 1rem;
+    p{
+            font-size: 1.2rem;
             font-weight: 400;
             color: ${props=>props.theme["gray-600"]};
             line-height: 24px;

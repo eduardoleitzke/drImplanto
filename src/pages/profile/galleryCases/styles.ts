@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { TabList, TabPanel } from 'react-tabs';
+
+interface IGalleryCasesContainerProps {
+    direction: 'row' | 'column'
+}
+
 export const GalleryCasesContainer = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: row;
     border-style: solid;
     border-width: 2px;
     border-color: ${props => props.theme["gray-400"]};
@@ -14,6 +20,7 @@ export const GalleryCasesContainer = styled.div`
 export const GalleryCaseContent = styled.div`
     padding: 7.75rem 2rem 7.75rem 4rem;
     display: flex;
+    
     width: 100%;
     overflow: scroll;
     ::-webkit-scrollbar{
@@ -180,7 +187,7 @@ export const MyPlanningsCard = styled.div`
         tbody{
             color: ${props=>props.theme["gray-800"]};
             font-weight: 400;
-            
+            cursor: pointer;
             tr{
                 width: 100%;
                 position: relative;

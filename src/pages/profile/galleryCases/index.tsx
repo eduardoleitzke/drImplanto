@@ -1,20 +1,21 @@
 import { Menu } from "../components/menu"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../../contexts/UserContext"
-import { GalleryCaseContent, GalleryCasesContainer, FirstFormColumn, SecondFormColumn, DateFilterContainer, MyPlanningsCard, PlanningsList } from "./styles"
+import { GalleryCaseContent, GalleryCasesContainer,  DateFilterContainer, MyPlanningsCard, PlanningsList } from "./styles"
 import { api } from "../../../lib/axios"
 import { IPlanning } from "../../../types/IPlannings"
 import { ArrowRight } from "phosphor-react"
 import { useForm } from 'react-hook-form'
-import { isBefore, isAfter, add } from "date-fns"
 import { SpecificPlanning } from "../MyPlannings/components/specificPlanning"
-interface IFilterForm {
+import { useFilter } from "../../../hooks/useFilter"
+import { GallerySpecificPlanning } from "./components/gallerySpecficPlanning"
+export interface IFilterForm {
     keyword?: string
     firstDate?: string
     secondDate?: string
     patientName?: string
     procedureType?: string
-    k?: string
+    data?: string
 }
 
 
@@ -30,7 +31,7 @@ export function GalleryCases() {
     })
     const { loggedUser } = useContext(UserContext)
     const [listOfPlannings, setListOfPlannings] = useState([])
-    const [filtredPlannings, setFiltredPlannings] = useState([])
+    const [filtredPlannings, setFiltredPlannings] = useState<IPlanning[]>([])
     const [isFiltred, setIsFiltred] = useState(false)
     const [showSpecificPlannning, setShowSpecificPlanning] = useState(false)
     const [specifiPlanningValue, setSpecificPlanningValues] = useState({} as IPlanning)
@@ -56,57 +57,22 @@ export function GalleryCases() {
 
     function filterPlannings(data: IFilterForm) {
         setIsFiltred(true)
-        let dataParams: IFilterForm = {}
-        for (var k in data) {
-            if (data[k] !== '')
-                dataParams[k] = data[k]
-        }
-        const filtred = listOfPlannings.filter((planning: IPlanning) => {
-            if ((dataParams.firstDate !== undefined && dataParams.secondDate !== undefined)) {
-                const searchFirstDate = new Date(`${dataParams.firstDate} 00:00:00 `)
-                const searchSecondDate = new Date(`${dataParams.secondDate} 00:00:00 `)
-                const searchSecondDateOneDayMore = add(searchSecondDate, { days: 1 })
-                const planningDate = new Date(planning.createdAt)
-                const dateAfter = isAfter(searchFirstDate, planningDate)
-                const dateBefore = isBefore(planningDate, searchSecondDateOneDayMore)
-                if (!dateAfter && dateBefore) {
-                    console.log('a')
-                }
-                else return
-            }
-            if (dataParams.keyword !== undefined) {
-                if (!(planning.procedureDetails.search(dataParams.keyword) !== -1)) return
-            }
-            if (dataParams.patientName !== undefined) {
-                if (!(planning.patientName.search(dataParams.patientName) !== -1)) return
-            }
-            if (dataParams.procedureType !== undefined) {
-                if (!(planning.procedureType.search(dataParams.procedureType) !== -1)) return
-            }
-
-            return planning
-
-
-
-        })
-        setFiltredPlannings(filtred)
+        const filtredList = useFilter(data, listOfPlannings)
+        setFiltredPlannings(filtredList)
     }
 
     return (
         <>
-
             {validToken && (
-
                 <GalleryCasesContainer>
                     <Menu />
-                    <GalleryCaseContent>
                         {showSpecificPlannning ?
                             (
-                                <SpecificPlanning specificPlanning={specifiPlanningValue}></SpecificPlanning>
+                                <GallerySpecificPlanning specificPlanning={specifiPlanningValue}></GallerySpecificPlanning>
                             )
                             :
                             (
-                                <>
+                                <GalleryCaseContent>
                                     <form onSubmit={handleSubmit(filterPlannings)}>
                                         <h3>GALERIA DE CASOS</h3>
                                         <p>
@@ -155,7 +121,7 @@ export function GalleryCases() {
                                                             if (planning.state === 'finished') {
                                                                 return (
 
-                                                                    <tbody>
+                                                                    <tbody key={planning._id}>
                                                                         <tr onClick={()=>specificPlanning(planning)}>
                                                                             <td>{planning.patientName}</td>
                                                                             <td>{planning.procedureType}</td>
@@ -191,12 +157,11 @@ export function GalleryCases() {
 
                                         </MyPlanningsCard>
 
-                                    </PlanningsList></>
+                                    </PlanningsList>
+                                </GalleryCaseContent> 
                             )
 
                         }
-
-                    </GalleryCaseContent>
                 </GalleryCasesContainer>
             )}
 

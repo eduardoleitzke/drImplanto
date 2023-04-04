@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import {useNavigate, useSearchParams } from "react-router-dom";
-import { PlansContainer, PlanCard, PlansCardContainer, PlansCardsContainer } from "./styles"
+import { PlansContainer, PlanCard, PlansCardContainer, PlansCardsContainer, FreeTrialLink, AssignPlanLink } from "./styles"
 import { UserContext } from "../../contexts/UserContext";
 import starIcon from '../../assets/home/plansCards/star.svg'
 
@@ -38,15 +38,8 @@ export function Plans() {
                 (
                     <PlansCardsContainer>
                         <h3>ESCOLHA SEU PLANO</h3>
+                        
                         <PlansCardContainer>
-                            <PlanCard>
-                                <h4>BÁSICO</h4>
-                                <p>Até 2 planejamentos por Mês</p>
-                                <p>Tempo de resposta de até 2 dias</p>
-                                <p>Contato direto com a equipe</p>
-                                <span>R$ 59,99 Mensal</span>
-                                <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c938084863f77b201864bbd8fe20b10" type="button">ASSINAR PLANO</a>
-                            </PlanCard>
                             <PlanCard>
                                 <h4>PREMIUM</h4>
                                 <p>Até 5 planejamentos por Mês</p>
@@ -56,15 +49,26 @@ export function Plans() {
                                 <p>2 feedback por planejamento</p>
                                 <span>R$ 100,00 Mensal</span>
                                 <img src={starIcon} alt="" />
-                                <a href='https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c9380848635e2cd01864bbe4e4515c6' type="button">ASSINAR PLANO</a>
+                                <AssignPlanLink href='https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c9380848635e2cd01864bbe4e4515c6' type="button">ASSINAR PLANO</AssignPlanLink>
+                                <FreeTrialLink>Assine uma demonstração gratuita</FreeTrialLink>
                             </PlanCard>
                             <PlanCard>
+                                <h4>BÁSICO</h4>
+                                <p>Até 2 planejamentos por Mês</p>
+                                <p>Tempo de resposta de até 2 dias</p>
+                                <p>Contato direto com a equipe</p>
+                                <span>R$ 59,99 Mensal</span>
+                                <AssignPlanLink href='https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c9380848635e2cd01864bbe4e4515c6' type="button">ASSINAR PLANO</AssignPlanLink>
+                                <FreeTrialLink>Assine uma demonstração gratuita</FreeTrialLink>
+                            </PlanCard>
+                            
+                            {/* <PlanCard>
                                 <h4>FREE TRIAL</h4>
                                 <p>1 planejamento grátis</p>
                                 <p>Resposta em até 2 dias</p>
                                 <span>GRÁTIS</span>
                                 <button type="button">ASSINAR PLANO</button>
-                            </PlanCard>
+                            </PlanCard> */}
                         </PlansCardContainer>
                     </PlansCardsContainer>
                 )

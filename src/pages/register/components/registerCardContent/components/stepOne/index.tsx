@@ -34,7 +34,7 @@ export function StepOne({ watch, register }: any) {
         try {
             await api.post('/verify_email', {email})
             isNextStep()
-        } catch (error) {
+        } catch (error:any) {
             const errorType = errorMessageTypes(error.response.data.type)
             setErrorMessage(errorType)
         }

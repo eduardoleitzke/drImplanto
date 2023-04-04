@@ -14,7 +14,7 @@ export function RegisterCard(){
                         <p>Entre com seus dados e crie sua conta para acessar nosso sistema de planejamentos!</p>
                     </header>
                     <RegisterCardContent/>
-                    <a href="">Voltar à tela de Login</a>
+                    <a href="/login">Voltar à tela de Login</a>
                 </RegisterCardContainer>
             ) :
             (

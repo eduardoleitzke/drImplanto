@@ -6,9 +6,9 @@ export const HomeHeaderContainer= styled.header`
     display: flex;
     justify-content: space-between;
     padding: 5rem 10rem;
-    p{
+    h2{
         color: ${props => props.theme["gray-700"]};
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         display: flex;
         align-items: center;
@@ -39,8 +39,45 @@ export const HomeHeaderContainer= styled.header`
                     padding: 0 1.5rem;
                     height: 3rem
                 }
+
+                
+            @media (max-width: 768px) {
+                    font-size: 0.8rem;
+                    padding: 0 0.5rem;
+                    height: 2rem
+                }
+        }
+        @media (max-width: 768px) {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+           
         }
     }
+
+    @media (max-width: 1400px) {
+        font-size: 1rem;
+        padding: 4rem 5rem;
+        height: 3rem
+        }
+
+    @media (max-width: 768px) {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        h2{
+            font-size: 1rem;
+            width: 100%;
+        }
+
+
+
+        }
 `
 
 export const HomeRegisterAncor = styled.a`

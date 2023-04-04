@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { HashLink } from "react-router-hash-link";
 export const HomeIntroContainer = styled.section`
     display: flex;
     justify-content: space-between;
@@ -8,14 +8,29 @@ export const HomeIntroContainer = styled.section`
     margin-top: 7.25rem;
     padding: 4rem 10rem;
 
+    img{
+        width: 40%;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+     
+        img{
+             display: none;
+            }
+     }
+
     @media (max-width: 1400px) {
+        padding: 4rem 5rem;
         margin-top: 0;
        
         }  
 
-    img{
-        width: 40%;
-    }
+    
 `
 
 export const HomeIntroContent = styled.div`
@@ -25,6 +40,15 @@ export const HomeIntroContent = styled.div`
     height: 38.81rem;
     width: 28.68rem;
     position: relative;
+
+    @media (max-width: 768px) {
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100vw;
+     }
 
     @media (max-width: 1400px) {
         height: 25.81rem;
@@ -65,6 +89,18 @@ export const HomeIntroContentWriting = styled.div`
               width: 90%;
         } 
     }
+
+    @media (max-width: 768px) { 
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+     
+
+        h2{
+            text-align: center;
+        }
+    }    
+
 `
 
 export const HomeIntroContentButtons = styled.div`
@@ -93,7 +129,34 @@ export const HomeIntroContentButtons = styled.div`
                 }
           
         }
+
+        @media (max-width: 768px) { 
+            padding: 0 1.5rem;
+        }
 `
+
+export const HashLinkButton = styled(HashLink)`
+            font-weight: bold;
+            color: ${props => props.theme["blue-400"]};
+            text-decoration: none;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 4rem;
+            padding: 0 2.2rem;
+            width: 16rem;
+
+            @media (max-width: 1400px) {
+                    font-size: 1rem;
+                    padding: 0 1.5rem;
+                    height: 3rem;
+                    width: 12rem;
+                }
+`
+
 
 export const RegisterButton = styled.a`
     color: ${props => props.theme["white"]};
