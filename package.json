@@ -1,11 +1,12 @@
 {
-  "name": "smart-dent-rio",
+  "homepage": "https://drimplante.online",
+  "name": "drimplanto",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build --mode production --force",
     "preview": "vite preview"
   },
   "dependencies": {

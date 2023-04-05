@@ -17,7 +17,7 @@ interface IPlanning {
 }
 
 export function MyPlannings() {
-    const { validToken, loggedUser } = useContext(UserContext)
+    const { validToken } = useContext(UserContext)
     const [showAll, setShowAll] = useState(true)
     const [specificPlanning, setSpecificplanning] = useState({} as IPlanning)
     console.log(showAll)
