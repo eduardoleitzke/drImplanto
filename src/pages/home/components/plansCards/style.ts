@@ -20,8 +20,8 @@ export const PlansCardsContainer = styled.section`
     }
     a{
         font-weight: bold;
-                text-decoration: none;
-                font-size: 1.5rem;
+            text-decoration: none;
+            font-size: 1.5rem;
                 display: flex;
                 gap: 1rem;
                 align-items: center;
@@ -55,6 +55,11 @@ export const PlansCardContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 4rem;
+    @media (max-width: 767px) {
+            flex-direction: column;
+            margin-bottom: 0rem;
+            margin-top: 4rem;
+        }
 `
 
 

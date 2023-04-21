@@ -15,6 +15,16 @@ export const PlanningIntroContainer= styled.section`
             height: 60%;
         }
     }
+
+    @media (max-width: 767px) {
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0rem;
+            img{
+                display: none;
+            }
+        }
 `
 
 export const PlanningIntroContet = styled.div`
@@ -27,6 +37,7 @@ export const PlanningIntroContet = styled.div`
         @media (max-width: 1400px) {
                 height: 30rem;
             }
+       
        
         h3{
             width: 80%;
@@ -41,6 +52,12 @@ export const PlanningIntroContet = styled.div`
                 font-size: 2rem;
                 width: 110%;
             }
+            @media (max-width: 767px) {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0rem;
+                text-align: center;
+         }
     }
         
 
@@ -55,11 +72,21 @@ export const PlanningIntroContet = styled.div`
             @media (max-width: 1400px) {
                 align-items: center;
             }
+            @media (max-width: 767px) {
+                flex-direction: center;
+                align-items: center;
+                width: 100%;
+                margin: 0;
+            }
 
             p{
                 @media (max-width: 1400px) {
-                font-size: 0.875rem;
-            }
+                    font-size: 0.875rem;
+                }
+                @media (max-width: 767px) {
+                    font-size: 1rem;
+                    text-align: center;
+                }
             }
             span{
                 font-weight: bold;
@@ -95,6 +122,13 @@ export const PlanningIntroContet = styled.div`
                 @media (max-width: 1400px) {
                     font-size: 1rem;
                     padding: 0 1rem;
+                }
+                @media (max-width: 767px) {
+                    font-size: 1rem;
+                    padding: 1rem;
+                    position: static;
+                    width: 90%;
+                    justify-content: space-between;
                 }
 
 

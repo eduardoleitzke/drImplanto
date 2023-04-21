@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, redirect } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { api } from "../lib/axios";
 
@@ -14,6 +14,7 @@ interface verifyTokenContextType{
 }
 
 interface ILoggedUserType{
+    isAdmin: boolean;
     email: string,
     plan: string,
     id: string
@@ -41,13 +42,15 @@ export function UserContextProvider({children}:IUserContextProviderProps){
                 return response
             })
             .then((resolve)=>{
-                console.log(resolve.data)
                 setLoggedUser(resolve.data)
                 setValidToken(true)
+                if(loggedUser.isAdmin){
+                    redirect('/admin')
+                }
                 })
             .catch((error)=>{console.log(error)
             cookies.remove("authorization_token")
-            navigate('/login')})
+            redirect('/login')})
          
         }
         fetchTokenValidation()
@@ -56,29 +59,39 @@ export function UserContextProvider({children}:IUserContextProviderProps){
     useEffect(()=>{
         if(loggedUser.id){
             async function fetchVerifySubscription(){
+                if(loggedUser.isAdmin){
+                    navigate('/admin')
+                }
+                else{
                 const userId = loggedUser.id
-                console.log(userId)
                 await api.post('/search_payment',{userId})
                 .then(response=>{
                     return response
                 })
                 .then((resolve)=>{
-                    const {data:{reason, status}} = resolve
+                    console.log(resolve)
                     if(!subscriptionData){
                         setSubscriptionData(resolve.data)
                     }
-                   
-                    console.log(resolve.data)
                     })
-                .catch((error)=>{console.log(error)
+                .catch((error)=>{
+                console.log(loggedUser)
                 navigate('/planos')})
             }
+        }
             fetchVerifySubscription()
         }
     }, [loggedUser])
 
+
+    useEffect(()=>{
+        if(loggedUser.isAdmin){
+            console.log('erro')
+        }
+    },[])
+
     function changeAttrLoggedUser(plan:string){
-        const userWithPlanUpdated = {email: loggedUser.email, plan, id: loggedUser.id}
+        const userWithPlanUpdated = {email: loggedUser.email, plan, id: loggedUser.id, isAdmin: loggedUser.isAdmin}
         setLoggedUser(userWithPlanUpdated)
     }
 

@@ -6,8 +6,6 @@ import starIcon from '../../assets/home/plansCards/star.svg'
 
 import { api } from "../../lib/axios";
 
-
-
 export function Plans() {
     const { validToken, loggedUser} = useContext(UserContext)
     const [searchParams, ] = useSearchParams()
@@ -17,7 +15,7 @@ export function Plans() {
         if (paymentId) {
             async function fetchToApi() {
                 const userId = loggedUser.id
-                console.log(loggedUser)
+                console.log('dsda')
                 const { data } = await api.post('/create_payment', { paymentId, userId })
                 
                 try {
@@ -30,7 +28,7 @@ export function Plans() {
             fetchToApi()
         }
 
-    }, [loggedUser])
+    }, [])
 
     return (
         <PlansContainer>

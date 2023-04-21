@@ -9,9 +9,13 @@ import { MyPlannings } from "./pages/profile/MyPlannings";
 import { NewPlanning } from "./pages/profile/newPlanning";
 import { GalleryCases } from "./pages/profile/galleryCases";
 import { UserContextProvider } from './contexts/UserContext';
+import { AdminContextProvider } from "./contexts/AdminContext";
 import { Contact } from "./pages/profile/contactUs";
 import { RecoveryPassword } from "./pages/recoveryPassword";
 import { ChangePassword } from "./pages/changePassword";
+import { Settings } from "./pages/profile/settings"
+import { Admin } from "./pages/admin";
+import { AdminMyPlannings } from "./pages/admin/MyPlannings";
 export function Router(){
     return (
         <Routes>
@@ -28,8 +32,13 @@ export function Router(){
                 <Route path="/profile/novo-planejamento" element={<NewPlanning/>}/>
                 <Route path="/profile/galeria" element={<GalleryCases/>}/>
                 <Route path="/profile/contato" element={<Contact/>}/>
+                <Route path="/profile/configuracoes" element={<Settings/>}/>
                 
-            </Route>  
+            </Route>
+            <Route element={<AdminContextProvider children/>}>
+                <Route path="/admin" element={<Admin/>}></Route>
+                <Route path="/admin/planejamentos" element={<AdminMyPlannings/>}></Route>
+            </Route>
         </Routes>
     )
 }

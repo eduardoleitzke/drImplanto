@@ -36,6 +36,17 @@ export const LoginCardContainer = styled.div<ILoginCardContainerProps>`
             width: 60%; 
             text-align: center;
         }
+        @media (max-width: 1400px) {
+
+            p, span{
+                font-size: 0.875rem;
+                display: none;
+            }
+
+            h3{
+                font-size: 2.5rem;
+            }
+        }
     }
 
     form{
@@ -105,6 +116,30 @@ export const LoginCardContainer = styled.div<ILoginCardContainerProps>`
                     font-weight: bold;
                 }
             }
+
+            @media (max-width: 1400px) {
+
+                p, span{
+                    font-size: 0.875rem;
+                }
+
+                h3{
+                    font-size: 2rem;
+                }
+
+                button[type=submit]{
+                    font-size: 1.2rem;
+                    padding: 0 1.5rem;
+                }
+
+                input[type=text], input[type=password]{
+                    font-size: 0.875rem;
+                }
+
+                label{
+                    font-size: 0.875rem;
+                }
+            }
         }   
         nav{
             display: flex;
@@ -118,7 +153,20 @@ export const LoginCardContainer = styled.div<ILoginCardContainerProps>`
                 color: ${props=>props.theme["blue-400"]};
                 font-weight: bold;
             }         
-        }    
+        } 
+        
+        @media (max-width: 1400px) {
+            width: 50%;
+            margin: 2rem 0;
+            p, span{
+                font-size: 0.875rem;
+            }
+
+            h3{
+                font-size: 1rem;
+            }
+            
+    }
 `
 
 

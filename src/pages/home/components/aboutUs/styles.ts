@@ -12,9 +12,7 @@ export const AboutUsContainer = styled.section`
     gap: 2rem;
     position: relative;
    
-    @media (max-width: 1400px) {
-        
-    }
+
     h3{
         font-size: 3rem;
         color:  ${props => props.theme["white"]};
@@ -35,11 +33,21 @@ export const AboutUsContainer = styled.section`
             line-height: 1.5;
             width: 50%
         }
+        @media (max-width: 767px) {
+           width: 90%;
+        }
     }
     
 
     img{
         position: absolute;
+        @media (max-width: 1400px) {
+            right: 5rem;
+        }
+        @media (max-width: 767px) {
+           display: none;
+        }
+
     }
 `
 
@@ -66,4 +74,8 @@ export const BrushImage = styled.img`
   @media (max-width: 1400px) {
         display: none;
     }
+
+
+
+    
 `

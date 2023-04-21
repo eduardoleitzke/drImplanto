@@ -34,12 +34,23 @@ export function LoginCard() {
         try {
             const resolve = await api.post('/session', data)
             cookies.set('authorization_token', resolve.data.token)
-            navigate('/profile')
+            verifyIsAdmin()
         } catch (error:any) {
             setErrorMessage(errorMessageTypes(error.response.data.type))
         }
     }
 
+    async function verifyIsAdmin(){
+        const tokenAuth = cookies.get("authorization_token")
+        var config = { headers: { Authorization: "bearer " + tokenAuth } };
+        const resolve = await api.post('verify_token', {}, config)
+        try {
+            if(resolve.data.isAdmin) navigate('/admin')
+            else navigate('/profile')
+        } catch (error) {
+            throw error
+        }
+    }
 
     function clearInputFildOnFocus(){
         if(errorMessage !== ''){

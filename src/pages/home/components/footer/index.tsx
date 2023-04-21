@@ -8,7 +8,7 @@ export function HomeFooter(){
     return (
         <HomeFooterContainer>
             <FooterInfo>
-                <span>Smart Planejamento Dentário</span>
+                <span>Doutor Implante</span>
                 <p>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                     tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -34,7 +34,7 @@ export function HomeFooter(){
                 <p>(53) 9999-9999</p>
             </Contatcts>
             <Baseboard>
-                <p>© Smart Planejamento Dentário 2022</p>
+                <p>© Doutor Implante 2022</p>
                 <nav>
                     <Link to="">Termos e Condições</Link>
                     <Link to="">Politica de Privacidade</Link>

@@ -19,11 +19,21 @@ export const HomeFooterContainer = styled.footer`
         height: auto;
         padding:  4.31rem 5rem 0 5rem ;;
     }
+    @media (max-width: 767px) {
+        height: auto;
+        padding:  4.31rem 5rem 0 5rem ;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
     span{
         font-size: 1.5rem;
         font-weight: 900;
         @media (max-width: 1400px) {
             font-size: 1rem;
+        }
+        @media (max-width: 767px) {
+            font-size: 1.2rem;
         }
     }
     a{
@@ -45,12 +55,23 @@ export const FooterInfo = styled.div`
         @media (max-width: 1400px) {
             width: 80%;
         }
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
 
     div{
         display: flex;
         gap: 1rem;
     }
+
+    @media (max-width: 767px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+    
 `
 
 export const FooterMenu = styled.nav`
@@ -58,6 +79,12 @@ export const FooterMenu = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    @media (max-width: 767px) {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 export const Contatcts = styled.div`
@@ -70,6 +97,14 @@ export const Contatcts = styled.div`
    p{
     font-size: 0.875rem;
    }
+
+   @media (max-width: 767px) {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+    }
 `
 
 export const Baseboard = styled.div`
@@ -88,5 +123,25 @@ export const Baseboard = styled.div`
         display: flex;
         gap: 1rem;
     }
+    @media (max-width: 767px) {
+            display: flex;
+            gap: 2rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            nav{
+                width: 90%;
+                order: 1;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            p{
+                order: 2;
+            }
+
+        }
+    
 `
 
