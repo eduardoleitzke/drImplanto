@@ -18,7 +18,6 @@ interface IAllPlanningsProps {
 
 
 export function AllPlannings({ showAll, setShowAll, setSpecificplanning }: IAllPlanningsProps) {
-    const { loggedUser } = useContext(UserContext)
     const [listOfPlannings, setListOfPlannings] = useState([])
     var verifyIfIsEmpty = [0, 0]
     listOfPlannings.forEach((planning: IPlanning) => {
@@ -29,17 +28,13 @@ export function AllPlannings({ showAll, setShowAll, setSpecificplanning }: IAllP
             verifyIfIsEmpty[1] = verifyIfIsEmpty[1] + 1
         }
     })
-    // useEffect(() => {
-    //     async function fetchToApi() {
-    //         const resolve = await api.post('/list_plannings', { userId: loggedUser.id })
-    //         try {
-    //             setListOfPlannings(resolve.data)
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     }
-    //     fetchToApi()
-    // }, [loggedUser, setListOfPlannings])
+    useEffect(()=>{
+        async function fetchAllUsers(){
+            const resolve = await api.get('/list_all_plannings')
+            setListOfPlannings(resolve.data)
+        }
+        fetchAllUsers()
+    }, [])
     return (
         <>
             <BackGroundImage src={backGroungImage} alt="" />

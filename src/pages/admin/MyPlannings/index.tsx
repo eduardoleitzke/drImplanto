@@ -24,7 +24,7 @@ export function AdminMyPlannings() {
 
     useEffect(()=>{
         async function fetchAllUsers(){
-            const resolve = await api.get('/list_users')
+            const resolve = await api.get('/list_all_plannings')
             console.log(resolve.data)
         }
         fetchAllUsers()
